@@ -37,7 +37,7 @@ Teachers can also use it to follow their students and to give them some advice.
 - [Iconify](https://iconify.design/)
 - [date-fns](https://date-fns.org/)
 - [aggrid](https://www.ag-grid.com/)
--[chartjs](https://www.chartjs.org/)
+- [chartjs](https://www.chartjs.org/)
 
 ## Link for doc Mui : 
 
