@@ -1,5 +1,4 @@
 import { Box, Slider, Stack } from '@mui/material';
-import reactLogo from '../assets/react.svg';
 
 function SliderContainer({name}) {
   
@@ -12,7 +11,7 @@ function SliderContainer({name}) {
   <Box style={{ display: 'flex', padding: '2rem 3rem', gap: '2rem', alignItems: 'center' }}>
     <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <p style={{width: "15rem",  fontSize: "1.2rem"}}>{name}</p>
-      <img src={reactLogo} alt="react logo" />
+      <p style={{fontSize: "3rem", fontWeight: "medium"}}>+</p>
     </Box>
     <Slider
       aria-label="Temperature"
