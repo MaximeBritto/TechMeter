@@ -1,0 +1,9 @@
+[
+    { "techno": "Reactjs", "pourcentage": "67%", "projets": "5 projets" },
+    { "techno": "Ruby on Rails", "pourcentage": "18%", "projets": "1 projets" },
+    { "techno": "Python", "pourcentage": "35%", "projets": "6 projets" },
+    { "techno": "SwiftUi", "pourcentage": "100%", "projets": "2 projets" },
+    { "techno": "Tailwind", "pourcentage": "40%", "projets": "8 projets" },
+    { "techno": "Nodejs", "pourcentage": "80%", "projets": "4 projets" }
+]
+  
