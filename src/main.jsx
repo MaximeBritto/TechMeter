@@ -4,6 +4,8 @@ import SliderContainer from "./composant/SliderContainer.jsx";
 import Bareme from "./composant/bareme.jsx";
 import "./index.css";
 import techmeterLogo from "./assets/techmeter-logo.svg"; 
+import SignUp from "./composant/server/signUp.jsx";
+import LoginPage from "./composant/server/login.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div style={{ border: "1px solid #ccc", margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
@@ -17,6 +19,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <SliderContainer name="Hooks" />
       <SliderContainer name="Evènement" />
       <SliderContainer name="Listes et clés" />
+      <SignUp/>
+      <LoginPage/>
     </React.StrictMode>
     ,
   </div>
