@@ -15,17 +15,15 @@ function SliderContainer({name, desc}) {
     <>
       <Stack style={{ border: '1px solid #ccc', width: '100%' }}>
       <Box style={{ display: 'flex', width:'100%', padding: '1rem 2rem', gap: '2rem', alignItems: 'center' }}>
-        <Accordion style={{ backgroundColor: 'transparent', color: 'white', width:'100%'}}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} style={{ cursor: 'default', color: 'white' }}>
+        <Accordion style={{ backgroundColor: 'transparent', color: 'white', width:'100%'}} >
+          <AccordionSummary expandIcon={<ExpandMoreIcon sx= {{ color: 'white', cursor: 'pointer'}}
+          />} style={{ cursor: 'default', color: 'white'}}>
             <Box style={{ display: 'flex', alignItems: 'center', marginRight: '50px', width: '30%', justifyContent:'space-between', cursor: 'pointer'}}>
               <p style={{ fontSize: "1.2rem" }}>{name}</p>
-              <div>
-                <img src={reactLogo} alt="react logo" />
-                <ExpandMoreIcon style={{ cursor: 'pointer' }} />              
-              </div>
+              <img src={reactLogo} alt="react logo" /> 
             </Box>
             <Slider
-              style={{ width: "70%" }}
+              style={{ width: "70%", marginRight: '20px' }}
               aria-label="Temperature"
               defaultValue={0}
               getAriaValueText={valuetext}
