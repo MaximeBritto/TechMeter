@@ -12,7 +12,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
     <React.StrictMode>
       <Bareme/>
-      <SliderContainer name="Composant"/>
+      <SliderContainer name="Composant" desc="Les composants sont les blocs de construction de l'interface utilisateur dans React.
+Ils peuvent être de deux types : fonctionnels (stateless) ou de classe (stateful)." />
       <SliderContainer name="JSX" />
       <SliderContainer name="Props" />
       <SliderContainer name="Cycle de vie" />
