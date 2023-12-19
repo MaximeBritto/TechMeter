@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import SliderContainer from "./composant/SliderContainer.jsx";
-import Bareme from "./composant/Bareme.jsx";
+import Bareme from "./composant/bareme.jsx";
 import "./index.css";
 import techmeterLogo from "./assets/techmeter-logo.svg"; 
 
