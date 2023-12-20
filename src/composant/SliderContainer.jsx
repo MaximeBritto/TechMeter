@@ -1,18 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { Box, Slider, Stack } from "@mui/material";
-import reactLogo from "../assets/react.svg";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import SliderContext from './SliderContext';
+import SliderContext from "./SliderContext";
+import { styled } from "@mui/system";
 
+const StyledAccordion = styled(Accordion)({
+  backgroundColor: "transparent",
+  color: "white",
+  width: "100%",
+  boxShadow: "none", // This line removes the box shadow
+});
 
 function SliderContainer({ name, desc }) {
   const [value, setValue] = React.useState(0);
   const { values, setValues } = useContext(SliderContext);
-
 
   function valuetext(value) {
     return `${value}°C`;
@@ -35,18 +40,16 @@ function SliderContainer({ name, desc }) {
             alignItems: "center",
           }}
         >
-          <Accordion
-            style={{
-              backgroundColor: "transparent",
-              color: "white",
-              width: "100%",
-            }}
-          >
+          <StyledAccordion>
             <AccordionSummary
               expandIcon={
-                <ExpandMoreIcon sx={{ color: "white", cursor: "pointer" }} />
+                <ExpandMoreIcon sx={{ color: "white", cursor: "pointer"}} />
               }
-              style={{ cursor: "default", color: "white" }}
+              style={{
+                cursor: "default",
+                color: "white",
+                flexDirection: "row-reverse",
+              }}
             >
               <Box
                 style={{
@@ -58,8 +61,7 @@ function SliderContainer({ name, desc }) {
                   cursor: "pointer",
                 }}
               >
-                <p style={{ fontSize: "1.2rem" }}>{name}</p>
-                <img src={reactLogo} alt="react logo" />
+                <p style={{ fontSize: "1.2rem", marginLeft: "2rem"  }}>{name}</p>
               </Box>
               <Slider
                 style={{ width: "70%", marginRight: "20px" }}
@@ -80,9 +82,8 @@ function SliderContainer({ name, desc }) {
             <AccordionDetails>
               <Typography>{desc}</Typography>
             </AccordionDetails>
-          </Accordion>
+          </StyledAccordion>
         </Box>
-        <div>Slider value: {value}</div>
       </Stack>
     </>
   );
