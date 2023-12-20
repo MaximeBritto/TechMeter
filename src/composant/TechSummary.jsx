@@ -36,7 +36,8 @@ function PieCenterLabel({ children }) {
 }
 
 function TechSummary() {
-  const { values } = React.useContext(SliderContext);
+  const context = React.useContext(SliderContext);
+  const values = context ? context.values : {};
   const average = Math.round(
     (20 * Object.values(values).reduce((a, b) => a + b, 0)) / sliderNames.length
   );
@@ -50,35 +51,75 @@ function TechSummary() {
   const pointsForts = sliderNames.filter((name) => values[name] > 3);
 
   return (
-    <div style={{ display: "flex", marginTop: "4rem", flexWrap: "wrap", gap: "2rem"}}>
+    <div
+      style={{
+        display: "flex",
+        marginTop: "4rem",
+        flexWrap: "wrap",
+        gap: "2rem",
+      }}
+    >
       <div>
-        <PieChart
-          series={[{ data, innerRadius: 80 }]}
-          {...size}
-          slotProps={{ legend: { hidden: true } }}
+        <SliderContext.Provider
+          value={{ average }}
         >
-          <PieCenterLabel>{average}%</PieCenterLabel>
-        </PieChart>
+          <PieChart
+            series={[{ data, innerRadius: 80 }]}
+            {...size}
+            slotProps={{ legend: { hidden: true } }}
+          >
+            <PieCenterLabel>{average}%</PieCenterLabel>
+          </PieChart>
+        </SliderContext.Provider>
       </div>
-      <div style={{border: "2px solid white", borderRadius: "1.5rem", padding: "2rem", width: "20rem"}}>
+      <div
+        style={{
+          border: "2px solid white",
+          borderRadius: "1.5rem",
+          padding: "2rem",
+          width: "20rem",
+        }}
+      >
         <h2 style={{ color: "#61DAFB", marginBottom: "1.5rem" }}>
           Points faibles
         </h2>
         <ul>
           {pointsFaibles.map((name) => (
-            <li key={name} style={{ marginBottom: "0.5rem", marginLeft: "0.5rem", fontSize: "1.2rem" }}>
+            <li
+              key={name}
+              style={{
+                marginBottom: "0.5rem",
+                marginLeft: "0.5rem",
+                fontSize: "1.2rem",
+              }}
+            >
               {name}
             </li>
           ))}
         </ul>
       </div>
-      <div style={{border: "2px solid white", borderRadius: "1.5rem", padding: "2rem", width: "20rem", minHeight: "20rem"}}>
+      <div
+        style={{
+          border: "2px solid white",
+          borderRadius: "1.5rem",
+          padding: "2rem",
+          width: "20rem",
+          minHeight: "20rem",
+        }}
+      >
         <h2 style={{ color: "#61DAFB", marginBottom: "1.5rem" }}>
           Points forts
         </h2>
         <ul>
           {pointsForts.map((name) => (
-            <li key={name} style={{ marginBottom: "0.5rem", marginLeft: "0.5rem", fontSize: "1.2rem" }}>
+            <li
+              key={name}
+              style={{
+                marginBottom: "0.5rem",
+                marginLeft: "0.5rem",
+                fontSize: "1.2rem",
+              }}
+            >
               {name}
             </li>
           ))}
