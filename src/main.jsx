@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import "./index.css";
 import DetailsPage from "./pages/DetailsPage.jsx";
+import AuthPage from "./pages/AuthPage.jsx";
 
 function Main() {
   const [sliderValues, setSliderValues] = useState();
@@ -16,7 +17,8 @@ function Main() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/details/:name" element={<DetailsPage />} />
+          <Route path="/details" element={<DetailsPage />} />
+          <Route path="/login" element={<AuthPage />} />
         </Routes>
       </BrowserRouter>
     </SliderContext.Provider>
