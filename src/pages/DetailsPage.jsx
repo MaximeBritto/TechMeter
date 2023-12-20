@@ -1,44 +1,36 @@
-import ButtonGeneric from "../composant/ButtonGeneric";
-import SliderContainer from "../composant/SliderContainer";
-import { Box } from "@mui/material";
-import Constant from '../assets/constants/Constants';
-import { useNavigate } from "react-router";
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import SliderContainer from "../composant/SliderContainer.jsx";
+import Bareme from "../composant/Bareme.jsx";
+import TechSummary from "../composant/TechSummary.jsx";
+// import "./index.css";
+import techmeterLogo from "../assets/techmeter-logo.svg"; 
+import SliderContext from "../composant/SliderContext";
 
-/**
- * Page de détails d'une technologie, incrémentation de la valeur en pourcentage.
- * @returns La valeur en pourcentage.
- */
-const DetailsPage = () => {
-     const navigate = useNavigate();
+const App = () => {
+  const [values, setValues] = useState({});
 
-    const buttonStyle = {
-        background: "transparent",
-        color: "white",
-        border: "1px solid white",
-        width: "65px",
-        height: "20px",
-        marginBottom: "2rem",
-        cursor: "pointer",
-    };
-
-    const navigateToPage = () => {
-        navigate("/");
-    };
-
-    return(
-        <div>
-            <ButtonGeneric name={Constant.RETURN} onClick={navigateToPage} style={buttonStyle}/>
-            <Box style={{ border: "1px solid #ccc", maxWidth: "90rem", padding: "5%"}}>
-                <SliderContainer name="Composant"/>
-                <SliderContainer name="JSX" />
-                <SliderContainer name="Props" />
-                <SliderContainer name="Cycle de vie" />
-                <SliderContainer name="Hooks" />
-                <SliderContainer name="Evènement" />
-                <SliderContainer name="Listes et clés" />
-            </Box> 
-        </div>
-    )
+  return (
+    <SliderContext.Provider value={{ values, setValues }}>
+      <div style={{margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
+        <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
+        <React.StrictMode>
+          <Bareme/>
+          <SliderContainer name="Composant" desc="Les composants sont les blocs de construction de l'interface utilisateur dans React.
+Ils peuvent être de deux types : fonctionnels (stateless) ou de classe (stateful)." />
+          <SliderContainer name="JSX" />
+          <SliderContainer name="Props" />
+          <SliderContainer name="Cycle de vie" />
+          <SliderContainer name="Hooks" />
+          <SliderContainer name="Evènement" />
+          <SliderContainer name="Listes et clés" />
+          <TechSummary />
+        </React.StrictMode>
+      </div>
+    </SliderContext.Provider>
+  );
 };
 
-export default DetailsPage;
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+export default App;
