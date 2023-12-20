@@ -29,7 +29,10 @@ const HomePage = () => {
     return(
         <div className='container-homePage' style={{margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
             <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
+            <div style={{margin: "2rem 0"}}>
             <BarChart datas={Data}/>
+            </div>
+            
             <div className='container-technosList'>
                 <TechnosList datas={Data} onClick={navigateToPage} style={buttonStyle}/>
             </div>
