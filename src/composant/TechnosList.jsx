@@ -1,6 +1,8 @@
 import Constant from '../assets/constants/Constants';
 import '../assets/styles/technosList/TechnosList.css';
 import ButtonGeneric from './ButtonGeneric';
+import { useState, useEffect } from 'react';
+import { supabase } from '../supabase';
 
 /**
  * Tableau de données avec les technos et leurs pourcentages.
@@ -9,17 +11,33 @@ import ButtonGeneric from './ButtonGeneric';
  * @returns une liste de technos.
  */
 const TechnosList = (props) => {
-  // eslint-disable-next-line react/prop-types
+  const [moduleInfos, setModuleInfo] = useState([]);
   const { datas, onClick, style } = props;
+
+  useEffect(() => {
+      async function getModuleInfos() {
+          const { data, error } = await supabase
+              .from('ModuleTable')
+              .select('*');
+          if (error) {
+              console.error(error);
+          } else {
+            setModuleInfo(data || []);
+          }
+      }
+      getModuleInfos();
+  }, []);
+  console.log(moduleInfos);
+  // eslint-disable-next-line react/prop-types
   return (
     <table>
       <tbody>
-        {datas?.map((data, index) => (
+        {moduleInfos?.map((data, index) => (
           <tr key={index}>
-            <td>{data.techno}</td>
-            <td>{data.pourcentage}</td>
-            <td>{data.projets}</td>
-            <td><ButtonGeneric name={Constant.VIEW_TECHNO} onClick={()=>onClick(data.techno)} style={style}/></td>
+            <td>{data.Module}</td>
+            <td>{data.Taux} %</td>
+            <td>{data.nb_composant} projets</td>
+            <td><ButtonGeneric name={Constant.VIEW_TECHNO} onClick={()=>onClick(data.Module)} style={style}/></td>    
           </tr>
         ))}
       </tbody>
