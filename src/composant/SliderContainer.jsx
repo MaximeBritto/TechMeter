@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Slider, Stack } from "@mui/material";
 import reactLogo from "../assets/react.svg";
 import Accordion from "@mui/material/Accordion";
@@ -6,9 +6,13 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import SliderContext from './SliderContext';
+
 
 function SliderContainer({ name, desc }) {
   const [value, setValue] = React.useState(0);
+  const { values, setValues } = useContext(SliderContext);
+
 
   function valuetext(value) {
     return `${value}°C`;
@@ -16,6 +20,7 @@ function SliderContainer({ name, desc }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setValues({ ...values, [name]: newValue });
   };
 
   return (
