@@ -9,15 +9,7 @@ import "./index.css";
 import DetailsPage from "./pages/DetailsPage.jsx";
 
 function Main() {
-  const [sliderValues, setSliderValues] = useState({
-    "Composant": 0,
-    "JSX": 2,
-    "Props": 0,
-    "Cycle de vie": 0,
-    "Hooks": 0,
-    "Evènement": 0,
-    "Listes et clés": 0
-  });
+  const [sliderValues, setSliderValues] = useState();
 
   return (
     <SliderContext.Provider value={{ values: sliderValues, setValues: setSliderValues }}>
