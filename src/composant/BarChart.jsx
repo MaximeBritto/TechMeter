@@ -16,7 +16,6 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
 );
 
 /**
@@ -46,8 +45,8 @@ const BarChart = ({ datas }) => {
       {
         label: 'Pourcentage',
         backgroundColor: colors,
-        borderColor: 'rgba(75,192,192,1)',
-        borderWidth: 1,
+        borderRadius: "16",
+
         hoverBackgroundColor: 'rgba(75,192,192,0.6)',
         hoverBorderColor: 'rgba(75,192,192,1)',
         data: data,
@@ -60,11 +59,14 @@ const BarChart = ({ datas }) => {
       x: {
         type: 'category',
         title: {
-          display: true,
+          display: false,
           text: 'Technologies',
         },
         ticks: {
           color: 'white',
+          font: {
+            size: 16,
+          }
         },
       },
       y: {
@@ -74,8 +76,8 @@ const BarChart = ({ datas }) => {
   };
 
   return (
-    <div className='container-barChart'>
-      <h2>Technologies Pourcentage</h2>
+    <div style={{width: "50%"}} className='container-barChart'>
+      <h1 style={{marginBottom: "4rem"}}>Alexandre ZERAH - <span style={{textDecoration: "underline"}}>A4 Fullstack</span></h1>
       <Bar data={chartData} options={chartOptions} />
     </div>
   );
