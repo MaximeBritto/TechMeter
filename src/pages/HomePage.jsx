@@ -4,6 +4,7 @@ import Data from "../assets/datas/Data.json";
 import Constant from '../assets/constants/Constants.jsx';
 import '../assets/styles/homePage/HomePage.css';
 import { useNavigate } from 'react-router';
+import techmeterLogo from "../assets/techmeter-logo.svg";
 
 /**
  * Evalution selon le type de technologie.
@@ -26,8 +27,8 @@ const HomePage = () => {
     }
    
     return(
-        <div className='container-homePage'>
-            <h1>{Constant.NAME_APPLICATION}</h1>
+        <div className='container-homePage' style={{margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
+            <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
             <BarChart datas={Data}/>
             <div className='container-technosList'>
                 <TechnosList datas={Data} onClick={navigateToPage} style={buttonStyle}/>

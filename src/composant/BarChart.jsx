@@ -46,6 +46,7 @@ const BarChart = ({ datas }) => {
       {
         label: 'Pourcentage',
         backgroundColor: colors,
+        borderRadius: "16",
         borderColor: 'rgba(75,192,192,1)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(75,192,192,0.6)',
@@ -75,7 +76,7 @@ const BarChart = ({ datas }) => {
 
   return (
     <div className='container-barChart'>
-      <h2>Technologies Pourcentage</h2>
+      <h1>Alexandre ZERAH - <span style={{textDecoration: "underline"}}>A4 Fullstack</span></h1>
       <Bar data={chartData} options={chartOptions} />
     </div>
   );
