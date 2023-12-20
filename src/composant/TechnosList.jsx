@@ -1,8 +1,8 @@
 import '../assets/styles/technosList/TechnosList.css';
 
-const TechnosList = () => {
+const TechnosList = (props) => {
     // eslint-disable-next-line react/prop-types
-    const { technos, icon } = props;
+    const { technos } = props;
   return (
     <table>
       <tbody>
@@ -11,7 +11,6 @@ const TechnosList = () => {
             <td>{techno.techno}</td>
             <td>{techno.pourcentage}</td>
             <td>{techno.projets}</td>
-            <p>{icon}</p>
           </tr>
         ))}
       </tbody>

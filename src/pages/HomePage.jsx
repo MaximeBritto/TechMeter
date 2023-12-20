@@ -27,7 +27,7 @@ const HomePage = () => {
             <BarChart technos={Data}/>
             <div className='container-technosList'>
                 <ButtonGeneric onClick={onCLick} name={Constant.ADD_TECHNO} style={buttonStyle}/>
-                <TechnosList technos={Data} icon={<ChevronRightIcon />}/>
+                <TechnosList technos={Data}/>
             </div>
         </div>
     )

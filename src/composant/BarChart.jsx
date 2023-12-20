@@ -1,10 +1,29 @@
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import "../assets/styles/barChart/BarChart.css";
+import '../assets/styles/barChart/BarChart.css';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 // eslint-disable-next-line react/prop-types
-const BarChart = ({technos}) => {
- 
+const BarChart = ({ technos }) => {
+  // eslint-disable-next-line react/prop-types
   const labels = technos?.map((tech) => tech.techno);
+  // eslint-disable-next-line react/prop-types
   const data = technos?.map((tech) => parseInt(tech.pourcentage, 10));
 
   const colors = [
