@@ -16,15 +16,19 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
 );
 
+/**
+ * BarChart component avec en paramétre une liste de données.
+ * @param {datas} param0 
+ * @returns un graphique en barre avec les données en pourcentage.
+ */
 // eslint-disable-next-line react/prop-types
-const BarChart = ({ technos }) => {
+const BarChart = ({ datas }) => {
   // eslint-disable-next-line react/prop-types
-  const labels = technos?.map((tech) => tech.techno);
+  const labels = datas?.map((tech) => tech.techno);
   // eslint-disable-next-line react/prop-types
-  const data = technos?.map((tech) => parseInt(tech.pourcentage, 10));
+  const data = datas?.map((tech) => parseInt(tech.pourcentage, 10));
 
   const colors = [
     '#61dafb',
@@ -41,8 +45,8 @@ const BarChart = ({ technos }) => {
       {
         label: 'Pourcentage',
         backgroundColor: colors,
-        borderColor: 'rgba(75,192,192,1)',
-        borderWidth: 1,
+        borderRadius: "16",
+
         hoverBackgroundColor: 'rgba(75,192,192,0.6)',
         hoverBorderColor: 'rgba(75,192,192,1)',
         data: data,
@@ -55,11 +59,14 @@ const BarChart = ({ technos }) => {
       x: {
         type: 'category',
         title: {
-          display: true,
+          display: false,
           text: 'Technologies',
         },
         ticks: {
           color: 'white',
+          font: {
+            size: 16,
+          }
         },
       },
       y: {
@@ -69,8 +76,8 @@ const BarChart = ({ technos }) => {
   };
 
   return (
-    <div className='container-barChart'>
-      <h2>Technologies Pourcentage</h2>
+    <div style={{width: "50%"}} className='container-barChart'>
+      <h1 style={{marginBottom: "4rem"}}>Alexandre ZERAH - <span style={{textDecoration: "underline"}}>A4 Fullstack</span></h1>
       <Bar data={chartData} options={chartOptions} />
     </div>
   );

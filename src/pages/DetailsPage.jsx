@@ -1,21 +1,36 @@
-import SliderContainer from "../composant/SliderContainer";
-import { Box } from "@mui/material";
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import SliderContainer from "../composant/SliderContainer.jsx";
+import Bareme from "../composant/Bareme.jsx";
+import TechSummary from "../composant/TechSummary.jsx";
+// import "./index.css";
+import techmeterLogo from "../assets/techmeter-logo.svg"; 
+import SliderContext from "../composant/SliderContext";
 
-const DetailsPage = () => {
+const App = () => {
+  const [values, setValues] = useState({});
 
-    return(
-        <div>
-            <Box style={{ border: "1px solid #ccc", maxWidth: "90rem", padding: "5%"}}>
-                <SliderContainer name="Composant"/>
-                <SliderContainer name="JSX" />
-                <SliderContainer name="Props" />
-                <SliderContainer name="Cycle de vie" />
-                <SliderContainer name="Hooks" />
-                <SliderContainer name="Evènement" />
-                <SliderContainer name="Listes et clés" />
-            </Box> 
-        </div>
-    )
+  return (
+    <SliderContext.Provider value={{ values, setValues }}>
+      <div style={{margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
+        <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
+        <React.StrictMode>
+          <Bareme/>
+          <SliderContainer name="Composant" desc="Les composants sont les blocs de construction de l'interface utilisateur dans React.
+Ils peuvent être de deux types : fonctionnels (stateless) ou de classe (stateful)." />
+          <SliderContainer name="JSX" />
+          <SliderContainer name="Props" />
+          <SliderContainer name="Cycle de vie" />
+          <SliderContainer name="Hooks" />
+          <SliderContainer name="Evènement" />
+          <SliderContainer name="Listes et clés" />
+          <TechSummary />
+        </React.StrictMode>
+      </div>
+    </SliderContext.Provider>
+  );
 };
 
-export default DetailsPage;
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+export default App;

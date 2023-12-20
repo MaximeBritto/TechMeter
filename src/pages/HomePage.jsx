@@ -1,16 +1,17 @@
 import BarChart from '../composant/BarChart.jsx';
 import TechnosList from '../composant/TechnosList.jsx';
 import Data from "../assets/datas/Data.json";
-import ButtonGeneric from '../composant/ButtonGeneric.jsx';
 import Constant from '../assets/constants/Constants.jsx';
 import '../assets/styles/homePage/HomePage.css';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useNavigate } from 'react-router';
+import techmeterLogo from "../assets/techmeter-logo.svg";
 
+/**
+ * Evalution selon le type de technologie.
+ * @returns La page d'accueil avec le graphique et la liste des technologies.
+ */
 const HomePage = () => {
-
-    const onCLick = () => {
-        console.log('click');
-    }
+    const navigate = useNavigate();
 
     const buttonStyle = {
         background: "transparent",
@@ -20,14 +21,20 @@ const HomePage = () => {
         height: "20px",
         cursor: "pointer",
     }
+
+    const navigateToPage = (name) => {
+        navigate('/details/' + name, {replace: true});
+    }
    
     return(
-        <div className='container-homePage'>
-            <h1>TechMeter</h1>
-            <BarChart technos={Data}/>
+        <div className='container-homePage' style={{margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
+            <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
+            <div style={{margin: "2rem 0"}}>
+            <BarChart datas={Data}/>
+            </div>
+            
             <div className='container-technosList'>
-                <ButtonGeneric onClick={onCLick} name={Constant.ADD_TECHNO} style={buttonStyle}/>
-                <TechnosList technos={Data}/>
+                <TechnosList datas={Data} onClick={navigateToPage} style={buttonStyle}/>
             </div>
         </div>
     )
