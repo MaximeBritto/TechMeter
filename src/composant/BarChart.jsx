@@ -19,12 +19,17 @@ ChartJS.register(
   Legend
 );
 
+/**
+ * BarChart component avec en paramétre une liste de données.
+ * @param {datas} param0 
+ * @returns un graphique en barre avec les données en pourcentage.
+ */
 // eslint-disable-next-line react/prop-types
-const BarChart = ({ technos }) => {
+const BarChart = ({ datas }) => {
   // eslint-disable-next-line react/prop-types
-  const labels = technos?.map((tech) => tech.techno);
+  const labels = datas?.map((tech) => tech.techno);
   // eslint-disable-next-line react/prop-types
-  const data = technos?.map((tech) => parseInt(tech.pourcentage, 10));
+  const data = datas?.map((tech) => parseInt(tech.pourcentage, 10));
 
   const colors = [
     '#61dafb',
