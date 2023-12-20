@@ -15,7 +15,7 @@ function Bareme({name}) {
     <p>2 : Notions basiques</p>
     <p>3 : Notions avancés</p>
     <p>4 : Bonne maitrîse</p>
-    <p>Maitrîse totale</p>
+    <p>5 : Maitrîse totale</p>
   </div>
 </div>
     </>
