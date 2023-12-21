@@ -1,10 +1,11 @@
 import BarChart from '../composant/BarChart.jsx';
 import TechnosList from '../composant/TechnosList.jsx';
 import Data from "../assets/datas/Data.json";
-import Constant from '../assets/constants/Constants.jsx';
+import Constant from '../assets/constants/Constants';
 import '../assets/styles/homePage/HomePage.css';
 import { useNavigate } from 'react-router';
 import techmeterLogo from "../assets/techmeter-logo.svg";
+import ButtonGeneric from '../composant/ButtonGeneric.jsx';
 
 /**
  * Evalution selon le type de technologie.
@@ -26,9 +27,14 @@ const HomePage = () => {
         navigate('/details/' + name, {replace: true});
     }
    
+    const logout = async() =>{
+        console.log("logout");
+    }
+    
     return(
         <div className='container-homePage' style={{margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
             <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
+            <ButtonGeneric name={Constant.LOGOUT} onClick={logout}/>
             <div style={{margin: "2rem 0"}}>
             <BarChart datas={Data}/>
             </div>
@@ -36,6 +42,7 @@ const HomePage = () => {
             <div className='container-technosList'>
                 <TechnosList datas={Data} onClick={navigateToPage} style={buttonStyle}/>
             </div>
+            <button onClick={logout}>logout</button>
         </div>
     )
 };

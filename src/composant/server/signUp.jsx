@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { supabase } from '../../supabase';
+import { useNavigate } from 'react-router-dom';
 
-const SignUp = ({ onToggleAuthMode }) => {
+const SignUp = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -11,9 +13,9 @@ const SignUp = ({ onToggleAuthMode }) => {
             if (error) {
                 throw error;
             }
-            
+    
             console.log('User signed up:', data);
-            // todo add redirect
+            navigate('/login');
         } catch (error) {
             console.log('Error signing up:', error);
         }
