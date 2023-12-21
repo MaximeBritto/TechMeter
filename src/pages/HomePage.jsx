@@ -6,13 +6,14 @@ import '../assets/styles/homePage/HomePage.css';
 import { useNavigate } from 'react-router';
 import techmeterLogo from "../assets/techmeter-logo.svg";
 import { supabase } from "../supabase";
-
+import { useAuth } from "../utils/context/AuthContext";
 /**
  * Evalution selon le type de technologie.
  * @returns La page d'accueil avec le graphique et la liste des technologies.
  */
 const HomePage = () => {
     const navigate = useNavigate();
+    const { data } = useAuth();
 
     const buttonStyle = {
         background: "transparent",
@@ -22,7 +23,7 @@ const HomePage = () => {
         height: "20px",
         cursor: "pointer",
     }
-
+   
     const navigateToPage = (name) => {
         navigate('/details/' + name, {replace: true});
     }
@@ -44,9 +45,12 @@ const HomePage = () => {
                 <button className="auth-button" name={Constant.LOGOUT} onClick={logout}>{Constant.LOGOUT}</button>                
             </div>
             <div style={{margin: "2rem 0"}}>
-            <BarChart datas={Data}/>
+                <div style={{marginBottom:"50px"}}>
+                    <h1>{data?.user?.email}</h1>
+                    <span style={{textDecoration: "underline"}}> A4 Fullstack</span>
+                </div>
+                <BarChart datas={Data}/>
             </div>
-            
             <div className='container-technosList'>
                 <TechnosList datas={Data} onClick={navigateToPage} style={buttonStyle}/>
             </div>
