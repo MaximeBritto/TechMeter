@@ -28,7 +28,7 @@ const HomePage = () => {
     }
    
     const logout = async() =>{
-        console.log("logout");
+        navigate('/login');
     }
     
     return(
