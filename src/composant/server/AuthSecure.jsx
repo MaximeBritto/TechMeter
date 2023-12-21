@@ -14,6 +14,7 @@ const AuthSecure = ({ children }) => {
             if (authenticated?.data?.user === null) {
             navigate('/login');
           } else {
+            localStorage.setItem('email', JSON.stringify(authenticated?.data?.user?.email));
             setIsLoading(false);
           }
         } catch (error) {
