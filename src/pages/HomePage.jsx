@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import BarChart from '../composant/BarChart.jsx';
 import TechnosList from '../composant/TechnosList.jsx';
 import Data from "../assets/datas/Data.json";
@@ -14,6 +15,9 @@ import { useAuth } from "../utils/context/AuthContext";
 const HomePage = () => {
     const navigate = useNavigate();
     const { data } = useAuth();
+    console.log(data);
+    useEffect(() => {
+    }, [data]);
 
     const buttonStyle = {
         background: "transparent",
