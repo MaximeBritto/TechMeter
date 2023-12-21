@@ -1,6 +1,14 @@
-const VIEW_TECHNO = "Voir";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+
+const VIEW_TECHNO = <ChevronRightIcon/>;
 const NAME_APPLICATION = "TechMeter";
-const RETURN = "Retour";
+const RETURN = (
+    <>
+        <ChevronLeftIcon />
+        Retour
+    </>
+);
 const LOGOUT = "Déconnexion";
 const NOT_FOUND = "Désolé, la page que vous cherchez n'existe pas!";
 const CODE_MESSAGE_ERROR = "404 - Page Not Found";

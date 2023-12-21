@@ -76,7 +76,7 @@ const BarChart = ({ datas }) => {
   };
 
   return (
-    <div style={{width: "50%"}} className='container-barChart'>
+    <div style={{width: "60%"}} className='container-barChart'>
       <h1 style={{marginBottom: "4rem"}}>Alexandre ZERAH - <span style={{textDecoration: "underline"}}>A4 Fullstack</span></h1>
       <Bar data={chartData} options={chartOptions} />
     </div>

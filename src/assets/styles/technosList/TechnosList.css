@@ -4,8 +4,7 @@ table {
     margin: 12px auto 20px auto;
 } 
 td, th { 
-    border: 1px solid #ddd; 
-    padding: 8px; 
+    padding: 18px; 
     text-align: left; 
 } 
 th { 
