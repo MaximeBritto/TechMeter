@@ -1,33 +1,43 @@
 #Aggrid boilerplate
 
-This project present some diffrents features with vite.js and with this project you have the base to create a aggrid project 
+Ce projet présente quelques fonctionnalités différentes avec vite.js et avec ce projet vous avez la base pour créer un projet aggrid
 
-You can find some feature integreted on the repos
-
+Vous pouvez trouver des fonctionnalités intégrées sur les dépôts
 
 ## Features
 
-- Vite: Fast, optimized, and next-generation front-end tooling.
-- ESLint: Ensure your code follows best practices and catches common errors.
-- Jest: Delightful JavaScript testing for React applications.
-- Husky: Ensure code quality by running ESLint and tests before committing.
-- Prettier: Code formatter to maintain a consistent code style.
-- React: A declarative, efficient, and flexible JavaScript library for building user interfaces.
-- Material-UI (MUI): React components that implement Google's Material Design.
-- Emotion: A popular library for writing styles with JavaScript.
-- Sass: An extension of CSS that adds power and elegance to the basic language.
-- React Query: Performant and powerful data fetching library for React.
-- Axios: Promise-based HTTP client for the browser and Node.js.
-- Iconify: Easily include icons in your project from multiple icon sets.
-- date-fns: Modern JavaScript date utility library.
-- aggrid: powerful tools to create some tab and easy filter
--chartjs: good tools to create graph
+- Vite : outils frontaux rapides, optimisés et de nouvelle génération.
+- ESLint : assurez-vous que votre code suit les meilleures pratiques et détecte les erreurs courantes.
+- Jest : délicieux tests JavaScript pour les applications React.
+- Husky : garantissez la qualité du code en exécutant ESLint et en effectuant des tests avant de vous engager.
+- Prettier : formateur de code pour maintenir un style de code cohérent.
+- React : Une bibliothèque JavaScript déclarative, efficace et flexible pour créer des interfaces utilisateur.
+- Material-UI (MUI) : composants React qui implémentent le Material Design de Google.
+- Emotion : Une bibliothèque populaire pour les styles d'écriture avec JavaScript.
+- Sass : Une extension de CSS qui ajoute puissance et élégance au langage de base.
+- React Query : bibliothèque de récupération de données performante et puissante pour React.
+- Axios : client HTTP basé sur des promesses pour le navigateur et Node.js.
+- Iconify : incluez facilement des icônes dans votre projet à partir de plusieurs jeux d'icônes.
+- date-fns : bibliothèque d'utilitaires de date JavaScript moderne.
+- aggrid : outils puissants pour créer des onglets et des filtres faciles -chartjs : bons outils pour créer un graphique.
 
-Link for doc Mui : 
+Lien pour le doc Mui : 
+
 Tri List Mui :
 - https://mui.com/material-ui/react-transfer-list/
+  
 Chip Mui :
 - https://mui.com/material-ui/react-select/
-Autocomplete :
+  
+Saisie semi-automatique :
 - https://mui.com/material-ui/react-autocomplete/
 
+## Installation
+
+- npm install
+- npm install vite
+
+## Lancement du serveur
+
+- npm start
+- http://localhost:5173/
