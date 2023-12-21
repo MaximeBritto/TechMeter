@@ -35,7 +35,7 @@ return (
   <table>
     <tbody>
       {moduleInfos?.map((data, index) => (
-        <tr key={index}>
+        <tr key={index} onClick={() => onClick(data.Module)}>
           <td
             style={{
               maxWidth: "2rem",
@@ -48,7 +48,7 @@ return (
           <td>{data.Taux} %</td>
           <td>{data.nb_composant} projets</td>
           <td>
-            <button style={{background: 'none', border: 'none'}} onClick={() => onClick(data.Module)}>
+            <button style={{background: 'none', border: 'none'}}>
               <img style={{}} src={chevron}></img>
             </button>  
           </td>
