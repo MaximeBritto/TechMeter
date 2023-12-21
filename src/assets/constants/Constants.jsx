@@ -12,6 +12,8 @@ const RETURN = (
 const LOGOUT = "Déconnexion";
 const NOT_FOUND = "Désolé, la page que vous cherchez n'existe pas!";
 const CODE_MESSAGE_ERROR = "404 - Page Not Found";
+const VERIF_AUTH = "Vérification de l'authentification...";
+const MESSAGE_ERROR_AUTH = "Erreur lors de la vérification de l'authentification :";
 
 const Constant = {
     VIEW_TECHNO,
@@ -19,7 +21,9 @@ const Constant = {
     RETURN,
     LOGOUT,
     NOT_FOUND,
-    CODE_MESSAGE_ERROR
+    CODE_MESSAGE_ERROR,
+    VERIF_AUTH,
+    MESSAGE_ERROR_AUTH
 }
 
 export default Constant;

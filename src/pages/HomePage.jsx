@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import BarChart from '../composant/BarChart.jsx';
 import TechnosList from '../composant/TechnosList.jsx';
 import Data from "../assets/datas/Data.json";
@@ -15,9 +15,10 @@ import { useAuth } from "../utils/context/AuthContext";
 const HomePage = () => {
     const navigate = useNavigate();
     const { data } = useAuth();
-    console.log(data);
+    const email = JSON.parse(localStorage.getItem('email'));
+
     useEffect(() => {
-    }, [data]);
+    }, [data, email]);
 
     const buttonStyle = {
         background: "transparent",
@@ -50,7 +51,7 @@ const HomePage = () => {
             </div>
             <div style={{margin: "2rem 0"}}>
                 <div style={{marginBottom:"50px"}}>
-                    <h1>{data?.user?.email}</h1>
+                    <h1>{data?.user === null ? email : data?.user?.email}</h1>
                     <span style={{textDecoration: "underline"}}> A4 Fullstack</span>
                 </div>
                 <BarChart datas={Data}/>

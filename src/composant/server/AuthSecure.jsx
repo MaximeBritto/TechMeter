@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'; 
 import { useNavigate } from 'react-router-dom'; 
 import { supabase } from "../../supabase"; 
+import Constant from '../../assets/constants/Constants';
 
 // eslint-disable-next-line react/prop-types
 const AuthSecure = ({ children }) => {
@@ -14,10 +15,11 @@ const AuthSecure = ({ children }) => {
             if (authenticated?.data?.user === null) {
             navigate('/login');
           } else {
+            localStorage.setItem('email', JSON.stringify(authenticated?.data?.user?.email));
             setIsLoading(false);
           }
         } catch (error) {
-          console.error("Erreur lors de la vérification de l'authentification :", error);
+          console.error(Constant.MESSAGE_ERROR_AUTH, error);
         }
       };
   
@@ -25,7 +27,7 @@ const AuthSecure = ({ children }) => {
     }, [navigate]);
   
     if (isLoading) {
-      return <p>Vérification de l'authentification...</p>;
+      return <p>{Constant.VERIF_AUTH}</p>;
     }
     return children;
   };
