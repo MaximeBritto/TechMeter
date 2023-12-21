@@ -7,7 +7,7 @@ import "./index.css";
 import DetailsPage from "./pages/DetailsPage.jsx";
 import AuthPage from "./pages/AuthPage.jsx";
 import AuthSecure from "./composant/server/AuthSecure.jsx";
-import { supabase } from "./supabase"; 
+import NotFound from "./pages/NotFound.jsx";
 
 function Main() {
   const [sliderValues, setSliderValues] = useState();
@@ -19,6 +19,7 @@ function Main() {
           <Route path="/" element={<AuthSecure><HomePage/></AuthSecure>}/>
           <Route path="/details/:name" element={<AuthSecure><DetailsPage/></AuthSecure>}/>
           <Route path="/login" element={<AuthPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </SliderContext.Provider>
