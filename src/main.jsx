@@ -8,21 +8,24 @@ import DetailsPage from "./pages/DetailsPage.jsx";
 import AuthPage from "./pages/AuthPage.jsx";
 import AuthSecure from "./composant/server/AuthSecure.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import { AuthContextProvider } from "./utils/context/AuthContext.jsx";
 
 function Main() {
   const [sliderValues, setSliderValues] = useState();
  
   return (
-    <SliderContext.Provider value={{ values: sliderValues, setValues: setSliderValues }}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<AuthSecure><HomePage/></AuthSecure>}/>
-          <Route path="/details/:name" element={<AuthSecure><DetailsPage/></AuthSecure>}/>
-          <Route path="/login" element={<AuthPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </SliderContext.Provider>
+    <AuthContextProvider>
+      <SliderContext.Provider value={{ values: sliderValues, setValues: setSliderValues }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<AuthSecure><HomePage/></AuthSecure>}/>
+            <Route path="/details/:name" element={<AuthSecure><DetailsPage/></AuthSecure>}/>
+            <Route path="/login" element={<AuthPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </SliderContext.Provider>
+    </AuthContextProvider>
   );
 }
 ReactDOM.createRoot(document.getElementById("root")).render(<Main />);

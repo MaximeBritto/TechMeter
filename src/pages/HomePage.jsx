@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import BarChart from '../composant/BarChart.jsx';
 import TechnosList from '../composant/TechnosList.jsx';
 import Data from "../assets/datas/Data.json";
@@ -7,14 +6,14 @@ import '../assets/styles/homePage/HomePage.css';
 import { useNavigate } from 'react-router';
 import techmeterLogo from "../assets/techmeter-logo.svg";
 import { supabase } from "../supabase";
-
+import { useAuth } from "../utils/context/AuthContext";
 /**
  * Evalution selon le type de technologie.
  * @returns La page d'accueil avec le graphique et la liste des technologies.
  */
 const HomePage = () => {
     const navigate = useNavigate();
-    const [ email, setEmail ] = useState('');
+    const { data } = useAuth();
 
     const buttonStyle = {
         background: "transparent",
@@ -24,17 +23,7 @@ const HomePage = () => {
         height: "20px",
         cursor: "pointer",
     }
-    const checkAuth = async () => {
-        try {
-            const authenticated = await supabase.auth.getUser()
-            setEmail(authenticated?.data?.user?.email);
-           console.log(authenticated);
-        } catch (error) {
-          console.error("Erreur lors de la vérification de l'authentification :", error);
-        }
-    };
-    checkAuth();
-
+   
     const navigateToPage = (name) => {
         navigate('/details/' + name, {replace: true});
     }
@@ -54,7 +43,7 @@ const HomePage = () => {
             <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
             <div style={{margin: "2rem 0"}}>
                 <div style={{marginBottom:"50px"}}>
-                    <h1>{email}</h1>
+                    <h1>{data?.user?.email}</h1>
                     <span style={{textDecoration: "underline"}}> A4 Fullstack</span>
                 </div>
                 <BarChart datas={Data}/>
