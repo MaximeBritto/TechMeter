@@ -5,7 +5,7 @@ import Constant from '../assets/constants/Constants';
 import '../assets/styles/homePage/HomePage.css';
 import { useNavigate } from 'react-router';
 import techmeterLogo from "../assets/techmeter-logo.svg";
-import ButtonGeneric from '../composant/ButtonGeneric.jsx';
+import { supabase } from "../supabase";
 
 /**
  * Evalution selon le type de technologie.
@@ -28,7 +28,13 @@ const HomePage = () => {
     }
    
     const logout = async() =>{
-        navigate('/login');
+        try {
+            await supabase.auth.signOut();
+            console.log('Utilisateur déconnecté avec succès.');
+            navigate('/login');
+        } catch (error) {
+            console.error('Erreur lors de la déconnexion :', error.message);
+        }      
     }
     
     return(
