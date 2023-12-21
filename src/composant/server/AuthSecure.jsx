@@ -15,7 +15,7 @@ const AuthSecure = ({ children }) => {
             navigate('/login');
           } else {
             setIsLoading(false);
-            navigate("/");
+            //navigate("/");
           }
         } catch (error) {
           console.error("Erreur lors de la vérification de l'authentification :", error);
