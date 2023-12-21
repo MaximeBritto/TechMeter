@@ -4,6 +4,10 @@ Ce projet présente quelques fonctionnalités différentes avec vite.js et avec 
 
 Vous pouvez trouver des fonctionnalités intégrées sur les dépôts
 
+## Stack Technique
+
+Node js 18+ et npm
+
 ## Features
 
 - Vite : outils frontaux rapides, optimisés et de nouvelle génération.
