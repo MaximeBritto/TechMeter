@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import SliderContainer from "../composant/SliderContainer.jsx";
-import Bareme from "../composant/Bareme.jsx";
+import Bareme from "../composant/bareme.jsx";
 import TechSummary from "../composant/TechSummary.jsx";
 // import "./index.css";
 import techmeterLogo from "../assets/techmeter-logo.svg"; 
@@ -9,6 +9,7 @@ import SliderContext from "../composant/SliderContext";
 import ButtonGeneric from "../composant/ButtonGeneric.jsx";
 import { useNavigate } from "react-router-dom";
 import Constant from "../assets/constants/Constants.jsx";
+import { supabase } from "../supabase";
 
 const App = () => {
     const [values, setValues] = useState({});
@@ -29,11 +30,25 @@ const App = () => {
     const navigateToPage = () => {
         navigate("/")
     }
+
+    const logout = async() =>{
+        try {
+            await supabase.auth.signOut();
+            console.log('Utilisateur déconnecté avec succès.');
+            navigate('/login');
+        } catch (error) {
+            console.error('Erreur lors de la déconnexion :', error.message);
+        }      
+    }
+
     return (
         <SliderContext.Provider value={{ values, setValues }}>
         <div style={{margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
-            <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
-            <ButtonGeneric name={Constant.RETURN} onClick={navigateToPage} style={buttonStyle}/>
+            <div className='flex justify-between'>
+                <img src={techmeterLogo} alt="Techmeter logo" style={{width: "15rem", marginBottom: "2rem"}}/>
+                <button className="auth-button" name={Constant.LOGOUT} onClick={logout}>{Constant.LOGOUT}</button>                
+            </div>
+            <ButtonGeneric name={Constant.RETURN} onClick={navigateToPage} />
             <React.StrictMode>
             <Bareme/>
             <SliderContainer name="Composant" desc="Les composants sont les blocs de construction de l'interface utilisateur dans React.

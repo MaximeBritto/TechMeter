@@ -33,12 +33,12 @@ const Login = ({ onToggleAuthMode }) => {
             <input
                 className='input-log'
                 type="password"
-                placeholder="Password"
+                placeholder="Mot de passe"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
             <button className="auth-button" onClick={handleLogin}>
-                Login
+                Se connecter
             </button>
         </div>
     );

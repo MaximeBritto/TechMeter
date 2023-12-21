@@ -34,11 +34,11 @@ console.log(moduleInfos);
     <table>
       <tbody>
         {moduleInfos?.map((data, index) => (
-          <tr key={index}>
+          <tr key={index} className='border p-2'>
             <td>{data.Module}</td>
             <td>{data.Taux} %</td>
             <td>{data.nb_composant} projets</td>
-            <td><ButtonGeneric name={Constant.VIEW_TECHNO} onClick={()=>onClick(data.Module)} style={style}/></td>    
+            <td onClick={()=>onClick(data.Module)} className='cursor-pointer'><ButtonGeneric name={Constant.VIEW_TECHNO} /></td>    
           </tr>
         ))}
       </tbody>

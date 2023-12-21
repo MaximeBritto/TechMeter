@@ -33,12 +33,12 @@ const SignUp = () => {
             <input
                 className='input-log'
                 type="password"
-                placeholder="Password"
+                placeholder="Mot de passe"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
             <button className="auth-button" onClick={handleSignUp}>
-                Sign Up
+                S'inscrire
             </button>
         </div>
     );
