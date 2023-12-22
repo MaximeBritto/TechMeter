@@ -24,6 +24,7 @@ Node js 18+ et npm
 - Iconify : incluez facilement des icônes dans votre projet à partir de plusieurs jeux d'icônes.
 - date-fns : bibliothèque d'utilitaires de date JavaScript moderne.
 - aggrid : outils puissants pour créer des onglets et des filtres faciles -chartjs : bons outils pour créer un graphique.
+- Tailwind CSS
 
 Lien pour le doc Mui : 
 
