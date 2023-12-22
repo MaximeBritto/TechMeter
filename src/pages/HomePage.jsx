@@ -20,15 +20,6 @@ const HomePage = () => {
     useEffect(() => {
     }, [data, email]);
 
-    const buttonStyle = {
-        background: "transparent",
-        color: "white",
-        border: "1px solid white",
-        width: "65px",
-        height: "20px",
-        cursor: "pointer",
-    }
-   
     const navigateToPage = (name) => {
         navigate('/details/' + name, {replace: true});
     }
@@ -57,7 +48,7 @@ const HomePage = () => {
                 <BarChart datas={Data}/>
             </div>
             <div className='container-technosList'>
-                <TechnosList datas={Data} onClick={navigateToPage} style={buttonStyle}/>
+                <TechnosList onClick={navigateToPage}/>
             </div>
         </div>
     )
