@@ -25,6 +25,7 @@ Node js 18+ et npm
 - date-fns : bibliothèque d'utilitaires de date JavaScript moderne.
 - aggrid : outils puissants pour créer des onglets et des filtres faciles -chartjs : bons outils pour créer un graphique.
 - Tailwind CSS
+- Supabase : plateforme open source qui combine les avantages d’une base de données PostgreSQL avec des fonctionnalités en temps réel et une API RESTful pour simplifier l’interaction avec la base de données.
 
 Lien pour le doc Mui : 
 
