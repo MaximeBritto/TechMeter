@@ -10,6 +10,7 @@ const AuthContextProvider = ({ children }) => {
     const checkAuth = async () => {
       try {
         const authenticated = await supabase.auth.getUser();
+        console.log("Données d'authentification :", authenticated); // Débogage
         setData(authenticated?.data);
       } catch (error) {
         console.error("Erreur lors de la vérification de l'authentification :", error);
