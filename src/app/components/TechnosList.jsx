@@ -4,6 +4,7 @@ import ButtonGeneric from './ButtonGeneric';
 import { useState, useEffect } from 'react';
 import { supabase } from '../supabase';
 import chevron from '../assets/chevron.svg'
+import Image from 'next/image';
 
 /**
  * Tableau de données avec les technos et leurs pourcentages.
@@ -49,7 +50,7 @@ return (
           <td>{data.nb_composant} projets</td>
           <td>
             <button style={{background: 'none', border: 'none'}}>
-              <img style={{}} src={chevron}></img>
+              <Image width={50} height={50} src={chevron}></Image>
             </button>  
           </td>
         </tr>

@@ -8,21 +8,12 @@ import Constant from '../assets/constants/Constants';
 import techmeterLogo from '../assets/techmeter-logo.svg';
 import { supabase } from '../supabase';
 import Image from 'next/image';
+import LogoutButton from './server/logout';
 
 const HomePage = () => {
     console.log(useAuth());
     const Auth = useAuth();
     const email = JSON.parse(localStorage.getItem('email'));
-    console.log(email);
-
-    const logout = async () => {
-        try {
-            await supabase.auth.signOut();
-            console.log('Utilisateur déconnecté avec succès.');
-        } catch (error) {
-            console.error('Erreur lors de la déconnexion :', error.message);
-        }
-    };
 
     if (!Auth) {
         return <p>Pas de Auth</p>;
@@ -42,9 +33,7 @@ const HomePage = () => {
         <div className='container-homePage' style={{ margin: '0 auto', maxWidth: '100rem', padding: '2rem 5%' }}>
             <div className='flex justify-between'>
                 <Image width={50} height={50} src={techmeterLogo} alt='Techmeter logo' style={{ width: '15rem', marginBottom: '2rem' }} />
-                <button className='auth-button' name={Constant.LOGOUT} onClick={logout}>
-                    {Constant.LOGOUT}
-                </button>
+                <LogoutButton />
             </div>
             <div style={{ margin: '2rem 0' }}>
                 <div style={{ marginBottom: '50px' }}>

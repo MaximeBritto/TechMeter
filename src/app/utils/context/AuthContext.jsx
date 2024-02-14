@@ -10,7 +10,7 @@ const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
         try {
-            const session = supabase.auth.session();
+            const session = supabase.auth.session;
             if (session) {
                 setUser(session.user);
             } else {
@@ -25,11 +25,13 @@ const AuthContextProvider = ({ children }) => {
     };
 
     fetchUser();
-  }, []); // Modification ici pour empêcher la dépendance de rechargement
+}, []);
+ // Modification ici pour empêcher la dépendance de rechargement
 
   const handleSessionChange = (event, session) => {
-      setUser(session.user);
+    setUser(session?.user || null);
   };
+
 
   useEffect(() => {
       const { data } = supabase.auth.onAuthStateChange(handleSessionChange);
