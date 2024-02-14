@@ -5,6 +5,7 @@ import Login from '../components/server/login.jsx';
 import SignUp from '../components/server/signUp.jsx';
 import techmeterLogo from "../assets/techmeter-logo.svg";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const AuthPage = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -15,7 +16,7 @@ const AuthPage = () => {
 
     return (
         <div className='w-screen'>
-            <img src={techmeterLogo} alt="Techmeter logo" style={{ width: "15rem", margin: "2rem" }} />
+            <Image width={50} height={50} src={techmeterLogo} alt="Techmeter logo" style={{ width: "15rem", margin: "2rem" }} />
             <div className="auth-container">
                 <div className="toggle-buttons">
                     <a className={`auth-title ${isLogin ? 'selected' : ''}`} onClick={toggleAuthMode}>
