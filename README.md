@@ -1,49 +1,36 @@
-#Aggrid boilerplate
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Ce projet présente quelques fonctionnalités différentes avec vite.js et avec ce projet vous avez la base pour créer un projet aggrid
+## Getting Started
 
-Vous pouvez trouver des fonctionnalités intégrées sur les dépôts
+First, run the development server:
 
-## Stack Technique
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Node js 18+ et npm
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Features
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-- Vite : outils frontaux rapides, optimisés et de nouvelle génération.
-- ESLint : assurez-vous que votre code suit les meilleures pratiques et détecte les erreurs courantes.
-- Jest : délicieux tests JavaScript pour les applications React.
-- Husky : garantissez la qualité du code en exécutant ESLint et en effectuant des tests avant de vous engager.
-- Prettier : formateur de code pour maintenir un style de code cohérent.
-- React : Une bibliothèque JavaScript déclarative, efficace et flexible pour créer des interfaces utilisateur.
-- Material-UI (MUI) : composants React qui implémentent le Material Design de Google.
-- Emotion : Une bibliothèque populaire pour les styles d'écriture avec JavaScript.
-- Sass : Une extension de CSS qui ajoute puissance et élégance au langage de base.
-- React Query : bibliothèque de récupération de données performante et puissante pour React.
-- Axios : client HTTP basé sur des promesses pour le navigateur et Node.js.
-- Iconify : incluez facilement des icônes dans votre projet à partir de plusieurs jeux d'icônes.
-- date-fns : bibliothèque d'utilitaires de date JavaScript moderne.
-- aggrid : outils puissants pour créer des onglets et des filtres faciles -chartjs : bons outils pour créer un graphique.
-- Tailwind CSS
-- Supabase : plateforme open source qui combine les avantages d’une base de données PostgreSQL avec des fonctionnalités en temps réel et une API RESTful pour simplifier l’interaction avec la base de données.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-Lien pour le doc Mui : 
+## Learn More
 
-Tri List Mui :
-- https://mui.com/material-ui/react-transfer-list/
-  
-Chip Mui :
-- https://mui.com/material-ui/react-select/
-  
-Saisie semi-automatique :
-- https://mui.com/material-ui/react-autocomplete/
+To learn more about Next.js, take a look at the following resources:
 
-## Installation
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- npm install
-- npm install vite
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Lancement du serveur
+## Deploy on Vercel
 
-- npm start
-- http://localhost:5173/
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
