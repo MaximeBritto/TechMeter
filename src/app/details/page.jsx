@@ -41,6 +41,7 @@ const DetailsPage = () => {
                 <SliderContainer name="Cycle de vie" />
                 <SliderContainer name="Hooks" />
                 <SliderContainer name="Evènement" />
+                <TechSummary />
             </SliderContext.Provider>
             
         </div>
