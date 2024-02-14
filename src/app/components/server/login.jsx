@@ -55,8 +55,6 @@ export default function Login() {
       <button className="auth-button" onClick={handleLogin}>
         Se connecter
       </button>
-      {/* Using Next.js Link for navigation */}
-      <Link href="/">Acc</Link>
     </div>
   );
 }

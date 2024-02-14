@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { supabase } from '../../supabase';
-import { useRouter } from 'next/router';
 
 const SignUp = () => {
-    const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -13,11 +11,12 @@ const SignUp = () => {
             if (error) {
                 throw error;
             }
-    
+            // Handle successful signup
             console.log('User signed up:', data);
-            router.push('/login');
+            alert('your account has been created, an email has been send')
         } catch (error) {
             console.log('Error signing up:', error);
+            alert('error')
         }
     };
 
