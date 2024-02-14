@@ -44,9 +44,6 @@ const HomePage = () => {
             </div>
             <div className='container-technosList'>
                 {/* Using Link for navigation */}
-                <Link href='/details/[name]' as='/details/some-name'>
-                    Go to Details Page
-                </Link>
                 <TechnosList />
             </div>
         </div>

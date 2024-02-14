@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../supabase';
 import chevron from '../assets/chevron.svg'
 import Image from 'next/image';
+import NextLink from 'next/link';
 
 /**
  * Tableau de données avec les technos et leurs pourcentages.
@@ -36,24 +37,25 @@ return (
   <table>
     <tbody>
       {moduleInfos?.map((data, index) => (
-        <tr key={index} onClick={() => onClick(data.Module)}>
-          <td
-            style={{
-              maxWidth: "2rem",
-              padding: "0.5rem",
-            }}
-          >
-            <img style={{ width: "80%" }} src={data.logo_URL}></img>
-          </td>
-          <td>{data.Module}</td>
-          <td>{data.Taux} %</td>
-          <td>{data.nb_composant} projets</td>
-          <td>
-            <button style={{background: 'none', border: 'none'}}>
-              <Image width={50} height={50} src={chevron}></Image>
-            </button>  
-          </td>
-        </tr>
+          <NextLink href={`/details/${data.Module.toLowerCase()}`} key={index}>
+          <tr>
+              <td style={{
+                  maxWidth: "2rem",
+                  padding: "0.5rem",
+              }}>
+                  <img style={{ width: "80%" }} src={data.logo_URL} />
+              </td>
+              <td>{data.Module}</td>
+              <td>{data.Taux} %</td>
+              <td>{data.nb_composant} projets</td>
+              <td>
+                  <button style={{background: 'none', border: 'none'}}>
+                      <Image width={50} height={50} src={chevron} />
+                  </button>  
+              </td>
+          </tr>
+      </NextLink>      
+      
       ))}
     </tbody>
   </table>
