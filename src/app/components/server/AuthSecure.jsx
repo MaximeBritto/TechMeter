@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'; 
-import { useNavigate } from 'react-router-dom'; 
+import { useRouter } from 'next/router';
 import { supabase } from "../../supabase"; 
 import Constant from '../../assets/constants/Constants';
 
 // eslint-disable-next-line react/prop-types
 const AuthSecure = ({ children }) => {
-    const navigate = useNavigate();
+    const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
   
     useEffect(() => {
@@ -13,7 +13,7 @@ const AuthSecure = ({ children }) => {
         try {
             const authenticated = await supabase.auth.getUser()
             if (authenticated?.data?.user === null) {
-            navigate('/login');
+            router.push('/login');
           } else {
             localStorage.setItem('email', JSON.stringify(authenticated?.data?.user?.email));
             setIsLoading(false);
@@ -24,12 +24,12 @@ const AuthSecure = ({ children }) => {
       };
   
       checkAuth();
-    }, [navigate]);
+    }, [router]);
   
     if (isLoading) {
       return <p>{Constant.VERIF_AUTH}</p>;
     }
     return children;
-  };
+};
 
-  export default AuthSecure;    
+export default AuthSecure;

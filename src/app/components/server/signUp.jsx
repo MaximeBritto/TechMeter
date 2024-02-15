@@ -1,26 +1,25 @@
 import { useState } from 'react';
 import { supabase } from '../../supabase';
-import { useNavigate } from 'react-router-dom';
 
-// eslint-disable-next-line react/prop-types
-const Login = ({ onToggleAuthMode }) => {
+const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        const { data, error } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-        });
-        console.log(await supabase.auth.getUser());
-        if (error) {
-            console.error('Error signing in:', error.message);
-        } else {
-            navigate('/');
-            console.log('User signed in successfully:', data);
+    const handleSignUp = async () => {
+        try {
+            const { data, error } = await supabase.auth.signUp({ email, password });
+            if (error) {
+                throw error;
+            }
+            // Handle successful signup
+            console.log('User signed up:', data);
+            alert('your account has been created, an email has been send')
+        } catch (error) {
+            console.log('Error signing up:', error);
+            alert('error')
         }
     };
+
     return (
         <div className="form-container">
             <input
@@ -37,10 +36,11 @@ const Login = ({ onToggleAuthMode }) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="auth-button" onClick={handleLogin}>
-                Se connecter
+            <button className="auth-button" onClick={handleSignUp}>
+                S&apos;inscrire
             </button>
         </div>
     );
 };
-export default Login;
+
+export default SignUp;
