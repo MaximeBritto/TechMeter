@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SliderContainer from "../../components/SliderContainer.jsx";
 import Bareme from "../../components/bareme.jsx";
 import TechSummary from "../../components/TechSummary.jsx";
@@ -11,9 +11,28 @@ import Constant from "../../assets/constants/Constants.jsx";
 import SliderContext from "../../components/SliderContext.js";
 import Image from "next/image";
 import LogoutButton from "@/app/components/server/Logout.jsx";
+import { supabase } from '../../supabase';
+
 
 const DetailsPage = () => {
-    const [values, setValues] = useState({});
+    const [values, setValues] = useState([]);
+
+    useEffect(() => {
+        async function getUserCompetenceModuleInfos() {
+            const { data, error } = await supabase
+                .from('UserCompetenceModuleTable')
+                .select('*');
+            if (error) {
+                console.error(error);
+            } else {
+                console.log("data",data);
+                setValues(data || []);
+            }
+        }
+        getUserCompetenceModuleInfos();
+    }, []);
+
+
 
     return (
         <div style={{margin: "0 auto", maxWidth: "100rem", padding: "2rem 5%"}}>
@@ -27,14 +46,13 @@ const DetailsPage = () => {
             <h1 style={{color: "#61DAFB", marginBottom: "1.5rem"}}>Techno</h1>
             <Bareme/>
             <SliderContext.Provider value={{ values, setValues }}>
-                <SliderContainer name="Composant" desc="Les composants sont les blocs de construction de l'interface utilisateur dans React. Ils peuvent être de deux types : fonctionnels (stateless) ou de classe (stateful)." />
-                <SliderContainer name="JSX" />
-                <SliderContainer name="Props" />
-                <SliderContainer name="Cycle de vie" />
-                <SliderContainer name="Hooks" />
-                <SliderContainer name="Evènement" />
+               {values?.map((value, index) => {
+                return <SliderContainer key={index} uuid={value.uuid} name={value.name} desc={value.desc} cmValue={value.cmValue}/>;
+              })} 
+           
                 <TechSummary />
             </SliderContext.Provider>
+
             
         </div>
     );

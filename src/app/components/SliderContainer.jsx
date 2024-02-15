@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext , useState} from "react";
 import { Box, Slider, Stack } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SliderContext from "./SliderContext";
 import { styled } from "@mui/system";
+import { supabase } from '../supabase';
 
 const StyledAccordion = styled(Accordion)({
   backgroundColor: "transparent",
@@ -15,9 +16,9 @@ const StyledAccordion = styled(Accordion)({
   boxShadow: "none", // This line removes the box shadow
 });
 
-function SliderContainer({ name, desc }) {
-  const [value, setValue] = React.useState(0);
-  const { values, setValues } = useContext(SliderContext);
+function SliderContainer({ uuid , name = "props", desc = "descProps", cmValue }) {
+  const [value, setValue] = useState(cmValue || 0);
+  //const { values, setValues } = useContext(SliderContext);
 
   function valuetext(value) {
     return `${value}°C`;
@@ -25,8 +26,31 @@ function SliderContainer({ name, desc }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    setValues({ ...values, [name]: newValue });
+    //setValues({ ...values, [name]: newValue });
   };
+
+  const handleSave = async () => {
+    console.log("value", value);
+
+    try {
+        let { data, error } = await supabase
+            .from('UserCompetenceModuleTable')
+            .update({cmValue: value})
+            .eq('uuid', uuid);
+
+        if (error) {
+            console.error(error);
+        } else {
+            // Assigner la valeur de 'value' à 'data'
+            data = value;
+            console.log("dataSave", data);
+        }
+    } catch (error) {
+        console.error("Une erreur s'est produite lors de la sauvegarde :", error);
+    }
+}
+
+
 
   return (
     <>
@@ -77,6 +101,9 @@ function SliderContainer({ name, desc }) {
                 value={value}
                 onChange={handleChange}
               />
+                 <button className="saveButton" onClick={handleSave}>
+                Save
+                </button>
             </AccordionSummary>
 
             <AccordionDetails>
