@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from "../../supabase"; 
 import Constant from '../../assets/constants/Constants';
-import localStorage from 'local-storage';
 
 // eslint-disable-next-line react/prop-types
 const AuthSecure = ({ children }) => {

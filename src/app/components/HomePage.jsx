@@ -9,7 +9,6 @@ import techmeterLogo from '../assets/techmeter-logo.svg';
 import { supabase } from '../supabase';
 import Image from 'next/image';
 import LogoutButton from './server/Logout';
-import localStorage from 'local-storage';
 
 const HomePage = () => {
     console.log(useAuth());

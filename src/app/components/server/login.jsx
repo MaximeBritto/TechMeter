@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../../supabase";
 import Link from "next/link";
-import localStorage from 'local-storage';
 
 
 export default function Login() {
