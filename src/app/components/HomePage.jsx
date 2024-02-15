@@ -8,7 +8,7 @@ import Constant from '../assets/constants/Constants';
 import techmeterLogo from '../assets/techmeter-logo.svg';
 import { supabase } from '../supabase';
 import Image from 'next/image';
-import LogoutButton from './server/logout';
+import LogoutButton from './server/Logout';
 
 const HomePage = () => {
     console.log(useAuth());
